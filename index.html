@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web app</title>
+    <h1><t><t>Simple clock watch</t></h1>
+    <style>
+        .body {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+            margin:0;
+            background-color: #444;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+            color: #f1f1f1;
+        }
+        .close-container{
+            background-color: black;
+            color: #d1d1d1;
+            padding: 20px;
+            border-radius : 12px;
+            text-align: center;
+        }
+        .clock{
+            font-size: 72px;
+            font-weight: bold;
+        }
+        .h1{
+            align-items: center;
+            color: aqua;
+        }
+    </style> 
+</head>
+<body>
+    <div class="close-container">
+        <div id="clock" class="clock"></div>
+    </div>
+    <script>
+        function displayCurrentTime(){
+            const now=new Date();
+            const hours=now.getHours().toString().padStart(2,'0');
+            const minutes=now.getMinutes().toString().padStart(2,'0');
+            const seconds=now.getSeconds().toString().padStart(2,'0');
+            document.getElementById('clock').textContent=`${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(displayCurrentTime,1000);
+        displayCurrentTime();
+    </script>
+</body>
+</html>
